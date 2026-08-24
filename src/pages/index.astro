@@ -1,0 +1,205 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+const posts = await getCollection("blog");
+
+const latestPosts = posts
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
+---
+
+<Layout title="Eric Digital Garden">
+
+
+<main>
+
+
+<section class="hero">
+
+
+<h1>
+AI · Tech · Tools · Internet
+</h1>
+
+
+<p>
+一个记录 AI、科技、工具和个人探索的数字空间。
+</p>
+
+
+<div class="buttons">
+
+<a href="/blog">
+Explore Blog
+</a>
+
+
+<a href="/projects">
+Projects
+</a>
+
+</div>
+
+
+</section>
+
+
+
+<section>
+
+
+<h2>
+Latest Notes
+</h2>
+
+
+{
+latestPosts.map((post)=>(
+<article>
+
+
+<a href={`/blog/${post.id}`}>
+
+<h3>
+{post.data.title}
+</h3>
+
+</a>
+
+
+<p>
+{post.data.description}
+</p>
+
+
+<span>
+{post.data.category} · {post.data.date.toLocaleDateString("zh-CN")}
+</span>
+
+
+</article>
+))
+}
+
+
+</section>
+
+
+</main>
+
+
+</Layout>
+
+
+
+<style>
+
+
+main{
+
+max-width:900px;
+margin:120px auto;
+padding:0 20px;
+
+}
+
+
+
+.hero{
+
+margin-bottom:100px;
+
+}
+
+
+
+h1{
+
+font-size:56px;
+line-height:1.2;
+
+}
+
+
+
+.hero p{
+
+font-size:20px;
+color:#666;
+
+margin-top:30px;
+
+}
+
+
+
+.buttons{
+
+margin-top:40px;
+
+}
+
+
+
+.buttons a{
+
+margin-right:25px;
+text-decoration:none;
+color:#111;
+
+}
+
+
+
+h2{
+
+font-size:32px;
+
+}
+
+
+
+article{
+
+padding:25px 0;
+border-bottom:1px solid #eee;
+
+}
+
+
+
+article a{
+
+text-decoration:none;
+color:#111;
+
+}
+
+
+
+h3{
+
+font-size:24px;
+
+}
+
+
+
+article p{
+
+color:#666;
+
+}
+
+
+
+span{
+
+font-size:14px;
+color:#888;
+
+}
+
+
+</style>

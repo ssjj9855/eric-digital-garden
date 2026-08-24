@@ -1,0 +1,104 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getCollection, render } from "astro:content";
+
+
+export async function getStaticPaths(){
+
+const posts = await getCollection("blog");
+
+
+return posts.map((post)=>({
+
+params:{
+slug:post.id
+},
+
+props:{
+post
+}
+
+}));
+
+}
+
+
+const {post}=Astro.props;
+
+const { Content } = await render(post);
+
+---
+
+
+<Layout title={post.data.title}>
+
+
+<main>
+
+
+<h1>
+{post.data.title}
+</h1>
+
+
+<p class="meta">
+
+{post.data.category}
+ · 
+{post.data.date.toLocaleDateString("zh-CN")}
+
+</p>
+
+
+
+<article>
+
+<Content />
+
+</article>
+
+
+</main>
+
+
+</Layout>
+
+
+
+<style>
+
+
+main{
+
+max-width:800px;
+
+}
+
+
+h1{
+
+font-size:48px;
+
+}
+
+
+.meta{
+
+color:#888;
+
+margin-bottom:50px;
+
+}
+
+
+article{
+
+font-size:18px;
+
+line-height:1.9;
+
+}
+
+
+
+</style>

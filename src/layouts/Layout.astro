@@ -1,0 +1,202 @@
+---
+const { title = "Eric Digital Garden" } = Astro.props;
+---
+
+
+<html lang="zh-CN">
+
+<head>
+
+<meta charset="UTF-8" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+<title>
+{title}
+</title>
+
+
+<meta 
+name="description" 
+content="Eric Digital Garden - AI、科技、工具和个人探索记录"
+/>
+
+
+<meta 
+name="keywords" 
+content="AI,人工智能,科技,工具,数字花园,效率"
+/>
+
+
+<meta 
+name="author" 
+content="Eric"
+/>
+
+
+</head>
+
+
+
+<body>
+
+
+<header>
+
+
+<div class="logo">
+
+<a href="/">
+Eric
+</a>
+
+</div>
+
+
+
+<nav>
+
+<a href="/">
+Home
+</a>
+
+
+<a href="/blog">
+Blog
+</a>
+
+
+<a href="/projects">
+Projects
+</a>
+
+
+<a href="/about">
+About
+</a>
+
+
+</nav>
+
+
+</header>
+
+
+
+<main>
+
+<slot />
+
+</main>
+
+
+
+<footer>
+
+<p>
+© 2026 Eric Digital Garden
+</p>
+
+</footer>
+
+
+
+</body>
+
+
+
+</html>
+
+
+
+<style>
+
+
+body {
+
+margin:0;
+
+font-family:
+-apple-system,
+BlinkMacSystemFont,
+"Segoe UI",
+sans-serif;
+
+color:#111;
+
+}
+
+
+
+header {
+
+max-width:1100px;
+
+margin:40px auto;
+
+padding:0 30px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+}
+
+
+
+.logo a {
+
+font-size:22px;
+
+font-weight:600;
+
+text-decoration:none;
+
+color:#111;
+
+}
+
+
+
+nav a {
+
+margin-left:25px;
+
+text-decoration:none;
+
+color:#666;
+
+}
+
+
+
+main {
+
+max-width:900px;
+
+margin:100px auto;
+
+padding:0 20px;
+
+}
+
+
+
+footer {
+
+text-align:center;
+
+margin:100px 0 40px;
+
+color:#888;
+
+font-size:14px;
+
+}
+
+
+
+</style>

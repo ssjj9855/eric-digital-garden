@@ -1,0 +1,136 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+const posts = await getCollection("blog");
+---
+
+<Layout title="Blog - Eric Digital Garden">
+
+<main>
+
+<h1>
+Blog
+</h1>
+
+
+<p class="intro">
+记录 AI、科技和工具探索。
+</p>
+
+
+
+<div class="posts">
+
+{
+posts.map((post) => (
+
+<article>
+
+
+<a href={`/blog/${post.id}`} class="title">
+
+
+<h2>
+{post.data.title}
+</h2>
+
+
+</a>
+
+
+<p>
+{post.data.description}
+</p>
+
+
+<span>
+{post.data.category} · {post.data.date.toLocaleDateString("zh-CN")}
+</span>
+
+
+</article>
+
+))
+}
+
+
+</div>
+
+
+</main>
+
+
+</Layout>
+
+
+
+<style>
+
+
+main {
+
+max-width:800px;
+
+}
+
+
+h1 {
+
+font-size:56px;
+
+}
+
+
+.intro {
+
+font-size:20px;
+
+color:#666;
+
+margin-bottom:60px;
+
+}
+
+
+
+article {
+
+padding:30px 0;
+
+border-bottom:1px solid #eee;
+
+}
+
+
+
+h2 {
+
+font-size:28px;
+
+font-weight:500;
+
+}
+
+
+
+.title {
+
+text-decoration:none;
+
+color:#111;
+
+}
+
+
+
+span {
+
+color:#888;
+
+font-size:14px;
+
+}
+
+
+</style>
