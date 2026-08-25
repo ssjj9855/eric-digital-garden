@@ -9,6 +9,7 @@ const blog = defineCollection({
     base: "./src/content/blog",
   }),
 
+
   schema: z.object({
 
     title: z.string(),
@@ -19,11 +20,17 @@ const blog = defineCollection({
 
     description: z.string(),
 
+    tags: z.array(z.string()).optional(),
+
+    cover: z.string().optional(),
+
   }),
 
 });
 
 
 export const collections = {
+
   blog,
+
 };

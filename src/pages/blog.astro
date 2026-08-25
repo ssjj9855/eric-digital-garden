@@ -5,9 +5,12 @@ import { getCollection } from "astro:content";
 const posts = await getCollection("blog");
 ---
 
+
 <Layout title="Blog - Eric Digital Garden">
 
+
 <main>
+
 
 <h1>
 Blog
@@ -22,21 +25,20 @@ Blog
 
 <div class="posts">
 
-{
-posts.map((post) => (
 
+{
+posts.map((post)=>(
 <article>
 
 
 <a href={`/blog/${post.id}`} class="title">
 
-
 <h2>
 {post.data.title}
 </h2>
 
-
 </a>
+
 
 
 <p>
@@ -44,13 +46,33 @@ posts.map((post) => (
 </p>
 
 
+
 <span>
-{post.data.category} · {post.data.date.toLocaleDateString("zh-CN")}
+{post.data.category}
+ · 
+{post.data.date.toLocaleDateString("zh-CN")}
 </span>
 
 
-</article>
 
+<div class="tags">
+
+
+{
+post.data.tags?.map((tag)=>(
+
+<span class="tag">
+#{tag}
+</span>
+
+))
+}
+
+
+</div>
+
+
+</article>
 ))
 }
 
@@ -68,21 +90,23 @@ posts.map((post) => (
 <style>
 
 
-main {
+main{
 
 max-width:800px;
 
 }
 
 
-h1 {
+
+h1{
 
 font-size:56px;
 
 }
 
 
-.intro {
+
+.intro{
 
 font-size:20px;
 
@@ -94,7 +118,7 @@ margin-bottom:60px;
 
 
 
-article {
+article{
 
 padding:30px 0;
 
@@ -104,17 +128,7 @@ border-bottom:1px solid #eee;
 
 
 
-h2 {
-
-font-size:28px;
-
-font-weight:500;
-
-}
-
-
-
-.title {
+.title{
 
 text-decoration:none;
 
@@ -124,9 +138,47 @@ color:#111;
 
 
 
-span {
+h2{
+
+font-size:28px;
+
+font-weight:500;
+
+}
+
+
+
+article p{
+
+color:#555;
+
+}
+
+
+
+span{
+
+font-size:14px;
 
 color:#888;
+
+}
+
+
+
+.tags{
+
+margin-top:15px;
+
+}
+
+
+
+.tag{
+
+margin-right:10px;
+
+color:#555;
 
 font-size:14px;
 

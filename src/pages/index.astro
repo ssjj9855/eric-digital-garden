@@ -2,12 +2,16 @@
 import Layout from "../layouts/Layout.astro";
 import { getCollection } from "astro:content";
 
+
 const posts = await getCollection("blog");
 
+
 const latestPosts = posts
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .slice(0, 3);
+.sort((a,b)=>b.data.date.valueOf()-a.data.date.valueOf())
+.slice(0,3);
+
 ---
+
 
 <Layout title="Eric Digital Garden">
 
@@ -56,6 +60,7 @@ Latest Notes
 
 {
 latestPosts.map((post)=>(
+
 <article>
 
 
@@ -68,17 +73,44 @@ latestPosts.map((post)=>(
 </a>
 
 
+
 <p>
 {post.data.description}
 </p>
 
 
+
 <span>
-{post.data.category} · {post.data.date.toLocaleDateString("zh-CN")}
+
+{post.data.category}
+ ·
+{post.data.date.toLocaleDateString("zh-CN")}
+
 </span>
 
 
+
+<div class="tags">
+
+
+{
+post.data.tags?.map((tag)=>(
+
+<span>
+#{tag}
+</span>
+
+))
+}
+
+
+</div>
+
+
+
 </article>
+
+
 ))
 }
 
@@ -117,7 +149,6 @@ margin-bottom:100px;
 h1{
 
 font-size:56px;
-line-height:1.2;
 
 }
 
@@ -127,8 +158,6 @@ line-height:1.2;
 
 font-size:20px;
 color:#666;
-
-margin-top:30px;
 
 }
 
@@ -145,6 +174,7 @@ margin-top:40px;
 .buttons a{
 
 margin-right:25px;
+
 text-decoration:none;
 color:#111;
 
@@ -196,8 +226,24 @@ color:#666;
 
 span{
 
-font-size:14px;
 color:#888;
+font-size:14px;
+
+}
+
+
+
+.tags{
+
+margin-top:12px;
+
+}
+
+
+
+.tags span{
+
+margin-right:10px;
 
 }
 

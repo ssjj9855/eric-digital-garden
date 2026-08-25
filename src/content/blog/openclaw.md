@@ -1,15 +1,30 @@
 ---
 title: OpenClaw：重新认识 AI Agent
+
 date: 2026-08-24
+
 category: AI
+
 description: 探索 AI Agent 的未来，以及它如何改变我们的工作方式。
+
+tags:
+  - AI
+  - Agent
+  - 科技
+
+cover: /images/openclaw.png
+
 ---
+
 
 # OpenClaw：重新认识 AI Agent
 
+
 ## 什么是 OpenClaw？
 
+
 OpenClaw 是一个围绕 AI Agent 的探索项目。
+
 
 它代表了一种新的交互方式：
 
@@ -17,6 +32,7 @@ OpenClaw 是一个围绕 AI Agent 的探索项目。
 
 
 ## 为什么关注 AI Agent？
+
 
 传统 AI：
 
@@ -32,6 +48,7 @@ AI Agent：
 
 
 ## 我的思考
+
 
 AI 正在从「工具」变成「伙伴」。
 
