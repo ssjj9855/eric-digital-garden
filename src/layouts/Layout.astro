@@ -1,5 +1,8 @@
 ---
-const { title = "Eric Digital Garden" } = Astro.props;
+const { 
+  title = "Eric Digital Garden",
+  description = "Eric Digital Garden - AI、科技、工具和个人探索记录"
+} = Astro.props;
 ---
 
 
@@ -7,9 +10,15 @@ const { title = "Eric Digital Garden" } = Astro.props;
 
 <head>
 
+
 <meta charset="UTF-8" />
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<meta 
+name="viewport" 
+content="width=device-width, initial-scale=1.0"
+/>
+
 
 
 <title>
@@ -17,10 +26,12 @@ const { title = "Eric Digital Garden" } = Astro.props;
 </title>
 
 
+
 <meta 
 name="description" 
-content="Eric Digital Garden - AI、科技、工具和个人探索记录"
+content={description}
 />
+
 
 
 <meta 
@@ -29,10 +40,65 @@ content="AI,人工智能,科技,工具,数字花园,效率"
 />
 
 
+
 <meta 
 name="author" 
 content="Eric"
 />
+
+
+
+<!-- Open Graph -->
+
+
+<meta 
+property="og:title" 
+content={title}
+/>
+
+
+<meta 
+property="og:description" 
+content={description}
+/>
+
+
+<meta 
+property="og:type" 
+content="website"
+/>
+
+
+<meta 
+property="og:site_name" 
+content="Eric Digital Garden"
+/>
+
+
+
+<!-- Twitter Card -->
+
+
+<meta 
+name="twitter:card" 
+content="summary_large_image"
+/>
+
+
+<meta 
+name="twitter:title" 
+content={title}
+/>
+
+
+<meta 
+name="twitter:description" 
+content={description}
+/>
+
+
+
+<link rel="icon" href="/favicon.svg" />
 
 
 </head>
@@ -105,13 +171,11 @@ About
 </body>
 
 
-
 </html>
 
 
 
 <style>
-
 
 body {
 
@@ -126,7 +190,6 @@ sans-serif;
 color:#111;
 
 }
-
 
 
 header {
@@ -146,7 +209,6 @@ align-items:center;
 }
 
 
-
 .logo a {
 
 font-size:22px;
@@ -160,7 +222,6 @@ color:#111;
 }
 
 
-
 nav a {
 
 margin-left:25px;
@@ -170,7 +231,6 @@ text-decoration:none;
 color:#666;
 
 }
-
 
 
 main {
@@ -184,7 +244,6 @@ padding:0 20px;
 }
 
 
-
 footer {
 
 text-align:center;
@@ -196,7 +255,6 @@ color:#888;
 font-size:14px;
 
 }
-
 
 
 </style>
