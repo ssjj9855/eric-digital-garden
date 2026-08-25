@@ -31,7 +31,21 @@ Blog
 
 {
 posts.map((post)=>(
+
 <article>
+
+
+{
+post.data.cover && (
+
+<img
+src={post.data.cover}
+alt={post.data.title}
+/>
+
+)
+}
+
 
 
 <a href={`/blog/${post.id}`} class="title">
@@ -76,6 +90,7 @@ post.data.tags?.map((tag)=>(
 
 
 </article>
+
 ))
 }
 
@@ -126,6 +141,22 @@ article{
 padding:30px 0;
 
 border-bottom:1px solid #eee;
+
+}
+
+
+
+img{
+
+width:100%;
+
+max-height:400px;
+
+object-fit:cover;
+
+border-radius:12px;
+
+margin-bottom:25px;
 
 }
 
@@ -186,6 +217,7 @@ color:#555;
 font-size:14px;
 
 }
+
 
 
 </style>
