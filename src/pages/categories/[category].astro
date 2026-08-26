@@ -1,0 +1,181 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+
+export async function getStaticPaths(){
+
+const posts = await getCollection("blog");
+
+
+const categories = [
+  ...new Set(
+    posts.map((post)=>post.data.category)
+  )
+];
+
+
+return categories.map((category)=>({
+
+params:{
+category:category.toLowerCase()
+},
+
+props:{
+category,
+posts:posts.filter(
+(post)=>post.data.category===category
+)
+}
+
+}));
+
+}
+
+
+
+const {category,posts}=Astro.props;
+
+---
+
+
+<Layout title={`${category} - Eric Digital Garden`}>
+
+
+
+<main>
+
+
+<h1>
+{category}
+</h1>
+
+
+<p class="intro">
+浏览 {category} 分类下的文章。
+</p>
+
+
+
+<div class="posts">
+
+
+{
+posts.map((post)=>(
+
+<article>
+
+
+<a href={`/blog/${post.id}`}>
+
+<h2>
+{post.data.title}
+</h2>
+
+</a>
+
+
+<p>
+{post.data.description}
+</p>
+
+
+<span>
+{post.data.date.toLocaleDateString("zh-CN")}
+</span>
+
+
+</article>
+
+))
+}
+
+
+</div>
+
+
+</main>
+
+
+</Layout>
+
+
+
+<style>
+
+
+main{
+
+max-width:800px;
+
+}
+
+
+h1{
+
+font-size:56px;
+
+}
+
+
+
+.intro{
+
+font-size:20px;
+
+color:#666;
+
+margin-bottom:50px;
+
+}
+
+
+
+article{
+
+padding:30px 0;
+
+border-bottom:1px solid #eee;
+
+}
+
+
+
+a{
+
+text-decoration:none;
+
+color:#111;
+
+}
+
+
+
+h2{
+
+font-size:28px;
+
+font-weight:500;
+
+}
+
+
+
+article p{
+
+color:#555;
+
+}
+
+
+
+span{
+
+font-size:14px;
+
+color:#888;
+
+}
+
+
+</style>

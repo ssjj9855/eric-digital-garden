@@ -1,8 +1,8 @@
 ---
-const { 
-  title = "Eric Digital Garden",
-  description = "Eric Digital Garden - AI、科技、工具和个人探索记录"
-} = Astro.props;
+const {  
+  title = "Eric Digital Garden", 
+  description = "Eric Digital Garden - AI、科技、工具和个人探索记录" 
+} = Astro.props; 
 ---
 
 
@@ -10,9 +10,7 @@ const {
 
 <head>
 
-
 <meta charset="UTF-8" />
-
 
 <meta 
 name="viewport" 
@@ -20,11 +18,9 @@ content="width=device-width, initial-scale=1.0"
 />
 
 
-
 <title>
 {title}
 </title>
-
 
 
 <meta 
@@ -33,12 +29,10 @@ content={description}
 />
 
 
-
 <meta 
 name="keywords" 
 content="AI,人工智能,科技,工具,数字花园,效率"
 />
-
 
 
 <meta 
@@ -76,6 +70,8 @@ content="Eric Digital Garden"
 
 
 
+
+
 <!-- Twitter Card -->
 
 
@@ -97,7 +93,6 @@ content={description}
 />
 
 
-
 <link rel="icon" href="/favicon.svg" />
 
 
@@ -113,19 +108,25 @@ content={description}
 
 <div class="logo">
 
+
 <a href="/">
 Eric
 </a>
+
 
 </div>
 
 
 
+
+
 <nav>
+
 
 <a href="/">
 Home
 </a>
+
 
 
 <a href="/blog">
@@ -133,9 +134,17 @@ Blog
 </a>
 
 
+
+<a href="/categories">
+Categories
+</a>
+
+
+
 <a href="/projects">
 Projects
 </a>
+
 
 
 <a href="/about">
@@ -146,7 +155,10 @@ About
 </nav>
 
 
+
 </header>
+
+
 
 
 
@@ -158,13 +170,19 @@ About
 
 
 
+
+
 <footer>
+
 
 <p>
 © 2026 Eric Digital Garden
 </p>
 
+
 </footer>
+
+
 
 
 
@@ -175,7 +193,10 @@ About
 
 
 
+
+
 <style>
+
 
 body {
 
@@ -190,6 +211,7 @@ sans-serif;
 color:#111;
 
 }
+
 
 
 header {
@@ -209,6 +231,8 @@ align-items:center;
 }
 
 
+
+
 .logo a {
 
 font-size:22px;
@@ -222,6 +246,9 @@ color:#111;
 }
 
 
+
+
+
 nav a {
 
 margin-left:25px;
@@ -231,6 +258,8 @@ text-decoration:none;
 color:#666;
 
 }
+
+
 
 
 main {
@@ -244,6 +273,9 @@ padding:0 20px;
 }
 
 
+
+
+
 footer {
 
 text-align:center;
@@ -255,6 +287,7 @@ color:#888;
 font-size:14px;
 
 }
+
 
 
 </style>
