@@ -2,7 +2,6 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-
 <Layout title="Projects - Eric">
 
 
@@ -20,9 +19,7 @@ Projects
 
 
 
-
 <section class="grid">
-
 
 
 <div class="card">
@@ -40,29 +37,24 @@ Eric Digital Garden
 
 <p>
 基于 Astro 构建的个人数字花园，
-用于记录 AI、科技、工具探索以及个人成长。
+用于记录 AI、科技工具、实践经验以及个人成长。
 </p>
 
 
 <div class="tags">
 
-<span>
-Astro
-</span>
+<span>Astro</span>
 
-<span>
-Markdown
-</span>
+<span>Markdown</span>
 
-<span>
-Git
-</span>
+<span>Git</span>
+
+<span>Vercel</span>
 
 </div>
 
 
 </div>
-
 
 
 
@@ -82,29 +74,22 @@ AI Tools
 
 <p>
 探索 AI 工具、AI Agent 和自动化工作流，
-寻找提升个人效率的新方式。
+寻找提升个人效率和创造力的新方式。
 </p>
 
 
 <div class="tags">
 
-<span>
-AI
-</span>
+<span>AI</span>
 
-<span>
-Agent
-</span>
+<span>Agent</span>
 
-<span>
-Automation
-</span>
+<span>Automation</span>
 
 </div>
 
 
 </div>
-
 
 
 
@@ -124,23 +109,18 @@ Content Creation
 
 <p>
 围绕人工智能和科技趋势，
-进行公众号、小红书等内容创作。
+进行公众号、小红书等内容创作，
+记录工具体验和实践过程。
 </p>
 
 
 <div class="tags">
 
-<span>
-Writing
-</span>
+<span>Writing</span>
 
-<span>
-Technology
-</span>
+<span>Technology</span>
 
-<span>
-Media
-</span>
+<span>Media</span>
 
 </div>
 
@@ -159,8 +139,6 @@ Media
 
 
 
-
-
 <style>
 
 
@@ -175,13 +153,11 @@ padding:0 20px;
 }
 
 
-
 h1{
 
 font-size:56px;
 
 }
-
 
 
 .intro{
@@ -193,7 +169,6 @@ color:#666;
 margin-bottom:60px;
 
 }
-
 
 
 .grid{
@@ -210,11 +185,11 @@ gap:25px;
 
 border:1px solid #eee;
 
-border-radius:16px;
+border-radius:20px;
 
-padding:30px;
+padding:32px;
 
-transition:transform .2s;
+transition:.3s;
 
 }
 
@@ -222,7 +197,11 @@ transition:transform .2s;
 
 .card:hover{
 
-transform:translateY(-4px);
+transform:translateY(-6px);
+
+box-shadow:
+
+0 15px 35px rgba(0,0,0,.08);
 
 }
 
@@ -274,7 +253,7 @@ background:#f5f5f5;
 
 padding:6px 12px;
 
-border-radius:20px;
+border-radius:999px;
 
 font-size:14px;
 
@@ -283,6 +262,7 @@ margin-right:10px;
 color:#555;
 
 }
+
 
 
 </style>

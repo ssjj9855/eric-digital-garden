@@ -33,8 +33,8 @@ AI · Tech · Tools · Future
 
 
 <p class="intro fade-in delay-2">
-探索人工智能、科技工具和个人成长。
-记录学习、实践，以及数字时代的新可能。
+探索 AI、科技工具和数字创造。
+记录学习、实践，以及人与技术共同成长的过程。
 </p>
 
 
@@ -65,7 +65,7 @@ AI · Tech · Tools · Future
 
 
 <h2>
-Latest Notes
+最新文章
 </h2>
 
 
@@ -100,7 +100,7 @@ latestPosts.map((post)=>(
 
 {post.data.category}
 
- ·
+·
 
 {post.data.date.toLocaleDateString("zh-CN")}
 
@@ -139,6 +139,75 @@ post.data.tags?.map((tag)=>(
 </section>
 
 
+
+<!-- Projects 区域 -->
+
+<section class="projects-preview">
+
+
+<h2>
+Projects
+</h2>
+
+
+<div class="project-list">
+
+
+<a href="/projects">
+
+<h3>
+🌱 Eric Digital Garden
+</h3>
+
+
+<p>
+基于 Astro 构建的个人数字花园，
+记录 AI、科技工具和个人探索。
+</p>
+
+
+</a>
+
+
+
+<a href="/projects">
+
+
+<h3>
+🤖 AI Tools
+</h3>
+
+
+<p>
+探索 AI 工具、AI Agent 和自动化工作流，
+寻找提升效率的新方式。
+</p>
+
+
+</a>
+
+<a href="/projects">
+
+<h3>
+✍️ Content Creation
+</h3>
+
+
+<p>
+围绕 AI 和科技趋势进行内容创作，
+记录工具体验和实践过程。
+</p>
+
+
+</a>
+
+</div>
+
+
+</section>
+
+
+
 </main>
 
 
@@ -154,7 +223,9 @@ post.data.tags?.map((tag)=>(
 main{
 
 max-width:900px;
+
 margin:120px auto;
+
 padding:0 20px;
 
 }
@@ -172,7 +243,9 @@ margin-bottom:100px;
 .subtitle{
 
 font-size:18px;
+
 color:#888;
+
 margin-bottom:20px;
 
 }
@@ -182,8 +255,11 @@ margin-bottom:20px;
 h1{
 
 font-size:72px;
+
 line-height:1.15;
+
 letter-spacing:-2px;
+
 margin:0;
 
 }
@@ -193,8 +269,11 @@ margin:0;
 .intro{
 
 font-size:20px;
+
 color:#666;
+
 line-height:1.9;
+
 max-width:620px;
 
 }
@@ -227,24 +306,21 @@ color:white;
 
 font-size:16px;
 
-transition:0.3s;
+transition:.3s;
 
 }
 
-.buttons a{
-
-transition:0.3s;
-
-}
 
 
 .buttons a:hover{
 
 transform:translateY(-4px);
 
-box-shadow:0 10px 25px rgba(0,0,0,0.12);
+box-shadow:0 10px 25px rgba(0,0,0,.12);
 
 }
+
+
 
 .buttons a:last-child{
 
@@ -254,13 +330,7 @@ color:#111;
 
 }
 
-.buttons a:hover{
 
-transform:translateY(-2px);
-
-opacity:0.85;
-
-}
 
 h2{
 
@@ -282,9 +352,10 @@ border-radius:20px;
 
 margin-bottom:24px;
 
-transition:0.3s;
+transition:.3s;
 
 }
+
 
 
 article:hover{
@@ -294,6 +365,8 @@ transform:translateY(-6px);
 box-shadow:0 15px 35px rgba(0,0,0,.08);
 
 }
+
+
 
 article a{
 
@@ -363,29 +436,103 @@ color:#666;
 
 }
 
+
+
+/* Projects */
+
+
+.projects-preview{
+
+margin-top:100px;
+
+}
+
+
+
+.project-list{
+
+display:grid;
+
+gap:20px;
+
+}
+
+
+
+.project-list a{
+
+display:block;
+
+padding:30px;
+
+border:1px solid #eee;
+
+border-radius:20px;
+
+text-decoration:none;
+
+color:inherit;
+
+transition:.3s;
+
+}
+
+
+
+.project-list a:hover{
+
+transform:translateY(-6px);
+
+box-shadow:0 15px 35px rgba(0,0,0,.08);
+
+}
+
+
+
+.project-list h3{
+
+margin:0 0 10px;
+
+}
+
+
+
+.project-list p{
+
+color:#666;
+
+line-height:1.7;
+
+}
+
+
+
 .fade-in{
 
 opacity:0;
 
 transform:translateY(20px);
 
-animation:fadeUp 0.8s ease forwards;
+animation:fadeUp .8s ease forwards;
 
 }
+
 
 
 .delay-1{
 
-animation-delay:0.15s;
+animation-delay:.15s;
 
 }
+
 
 
 .delay-2{
 
-animation-delay:0.3s;
+animation-delay:.3s;
 
 }
+
 
 
 @keyframes fadeUp{
@@ -408,5 +555,6 @@ transform:translateY(0);
 }
 
 }
+
 
 </style>

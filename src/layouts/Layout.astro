@@ -165,7 +165,7 @@ Home
 
 <a 
 href="/blog"
-class={currentPath === "/blog" ? "active" : ""}
+class={currentPath.startsWith("/blog") ? "active" : ""}
 >
 Blog
 </a>
@@ -173,7 +173,7 @@ Blog
 
 <a
 href="/categories"
-class={currentPath === "/categories" ? "active" : ""}
+class={currentPath.startsWith("/categories") ? "active" : ""}
 >
 Categories
 </a>
@@ -225,11 +225,17 @@ About
 
 <footer>
 
-
 <p>
 © 2026 Eric Digital Garden
 </p>
 
+<p>
+Built with Astro · Markdown · AI
+</p>
+
+<p>
+探索技术，记录成长。
+</p>
 
 </footer>
 
