@@ -69,7 +69,7 @@ const nextPost = sortedPosts[currentIndex - 1];
 
 ---
 
- 
+
 <Layout title={post.data.title} description={post.data.description}>
 
 
@@ -137,9 +137,9 @@ alt={post.data.title}
 {
 post.data.tags?.map((tag)=>(
 
-<span>
+<a href={`/tags/${tag}`}>
 #{tag}
-</span>
+</a>
 
 ))
 
@@ -147,6 +147,7 @@ post.data.tags?.map((tag)=>(
 
 
 </div>
+
 
 
 
@@ -192,8 +193,6 @@ headings.map((heading)=>(
 )
 
 }
-
-
 
 
 
@@ -278,6 +277,8 @@ nextPost && (
 
 
 
+
+
 <style>
 
 
@@ -351,7 +352,7 @@ margin-bottom:40px;
 
 
 
-.tags span{
+.tags a{
 
 display:inline-block;
 
@@ -361,8 +362,9 @@ font-size:14px;
 
 color:#666;
 
-}
+text-decoration:none;
 
+}
 
 
 
