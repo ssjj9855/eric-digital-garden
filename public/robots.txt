@@ -1,0 +1,5 @@
+User-agent: *
+
+Allow: /
+
+Sitemap: https://eric-digital-garden.vercel.app/sitemap-index.xml
