@@ -7,6 +7,7 @@ tags:
   - AI
   - ChatGPT
   - 效率
+series: "AI 工具探索系列"
 cover: /images/chatgpt-tips.png
 ---
 

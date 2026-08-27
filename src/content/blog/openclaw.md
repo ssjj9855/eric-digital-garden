@@ -11,7 +11,7 @@ tags:
   - AI
   - Agent
   - 科技
-
+series: "AI Agent 入门系列"
 cover: /images/openclaw.png
 
 ---

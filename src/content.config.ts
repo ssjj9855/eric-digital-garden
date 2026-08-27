@@ -24,6 +24,8 @@ const blog = defineCollection({
 
     cover: z.string().optional(),
 
+    series:z.string().optional(),
+
   }),
 
 });
