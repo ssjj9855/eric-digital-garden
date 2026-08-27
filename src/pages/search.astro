@@ -1,0 +1,92 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Search - Eric">
+
+<main>
+
+<h1>搜索</h1>
+
+<input id="search-input" placeholder="搜索文章..." />
+
+<div id="results"></div>
+
+</main>
+<script is:inline>
+
+async function initSearch(){
+
+const pagefind = await import("/pagefind/pagefind.js");
+
+await pagefind.init();
+
+
+const input = document.getElementById("search-input");
+
+const results = document.getElementById("results");
+
+
+if(!input || !results) return;
+
+
+input.addEventListener("input", async()=>{
+
+
+const value = input.value.trim();
+
+
+if(!value){
+
+results.innerHTML="";
+
+return;
+
+}
+
+
+const search = await pagefind.search(value);
+
+
+results.innerHTML="";
+
+
+for(const item of search.results.slice(0,10)){
+
+
+const data = await item.data();
+
+
+results.innerHTML += `
+
+<h2>
+
+<a href="${data.url}">
+
+${data.meta.title}
+
+</a>
+
+</h2>
+
+<p>
+
+${data.excerpt}
+
+</p>
+
+`;
+
+}
+
+
+});
+
+
+}
+
+
+initSearch();
+
+</script>
+</Layout>
