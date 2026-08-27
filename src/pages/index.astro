@@ -22,31 +22,42 @@ const latestPosts = posts
 <section class="hero">
 
 
+<p class="subtitle">
+Eric Digital Garden
+</p>
+
+
 <h1>
-AI · Tech · Tools · Internet
+AI · Tech · Tools · Future
 </h1>
 
 
-<p>
-一个记录 AI、科技、工具和个人探索的数字空间。
+<p class="intro">
+探索人工智能、科技工具和个人成长。
+记录学习、实践，以及数字时代的新可能。
 </p>
+
 
 
 <div class="buttons">
 
+
 <a href="/blog">
-Explore Blog
+阅读文章
 </a>
 
 
 <a href="/projects">
-Projects
+查看项目
 </a>
+
 
 </div>
 
 
 </section>
+
+
 
 
 
@@ -58,8 +69,13 @@ Latest Notes
 </h2>
 
 
+
+<div class="posts">
+
+
 {
 latestPosts.map((post)=>(
+
 
 <article>
 
@@ -80,13 +96,15 @@ latestPosts.map((post)=>(
 
 
 
-<span>
+<div class="meta">
 
 {post.data.category}
+
  ·
+
 {post.data.date.toLocaleDateString("zh-CN")}
 
-</span>
+</div>
 
 
 
@@ -115,6 +133,9 @@ post.data.tags?.map((tag)=>(
 }
 
 
+</div>
+
+
 </section>
 
 
@@ -122,6 +143,8 @@ post.data.tags?.map((tag)=>(
 
 
 </Layout>
+
+
 
 
 
@@ -146,18 +169,32 @@ margin-bottom:100px;
 
 
 
-h1{
+.subtitle{
 
-font-size:56px;
+font-size:18px;
+color:#888;
+margin-bottom:20px;
 
 }
 
 
 
-.hero p{
+h1{
 
-font-size:20px;
+font-size:64px;
+line-height:1.2;
+margin:0;
+
+}
+
+
+
+.intro{
+
+font-size:22px;
 color:#666;
+line-height:1.8;
+max-width:650px;
 
 }
 
@@ -173,9 +210,28 @@ margin-top:40px;
 
 .buttons a{
 
-margin-right:25px;
+display:inline-block;
+
+padding:12px 24px;
+
+margin-right:15px;
+
+border-radius:10px;
 
 text-decoration:none;
+
+background:#111;
+
+color:white;
+
+}
+
+
+
+.buttons a:last-child{
+
+background:#eee;
+
 color:#111;
 
 }
@@ -184,7 +240,9 @@ color:#111;
 
 h2{
 
-font-size:32px;
+font-size:34px;
+
+margin-bottom:40px;
 
 }
 
@@ -192,8 +250,13 @@ font-size:32px;
 
 article{
 
-padding:25px 0;
-border-bottom:1px solid #eee;
+padding:30px;
+
+border:1px solid #eee;
+
+border-radius:16px;
+
+margin-bottom:20px;
 
 }
 
@@ -202,6 +265,7 @@ border-bottom:1px solid #eee;
 article a{
 
 text-decoration:none;
+
 color:#111;
 
 }
@@ -210,7 +274,9 @@ color:#111;
 
 h3{
 
-font-size:24px;
+font-size:26px;
+
+margin:0 0 15px;
 
 }
 
@@ -220,13 +286,16 @@ article p{
 
 color:#666;
 
+line-height:1.7;
+
 }
 
 
 
-span{
+.meta{
 
 color:#888;
+
 font-size:14px;
 
 }
@@ -235,7 +304,7 @@ font-size:14px;
 
 .tags{
 
-margin-top:12px;
+margin-top:15px;
 
 }
 
@@ -243,7 +312,11 @@ margin-top:12px;
 
 .tags span{
 
-margin-right:10px;
+margin-right:12px;
+
+font-size:14px;
+
+color:#666;
 
 }
 
