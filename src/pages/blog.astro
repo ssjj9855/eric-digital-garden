@@ -25,6 +25,9 @@ Blog
 </p>
 
 
+<div id="search"></div>
+
+
 <p>
 文章数量：{posts.length}
 </p>
@@ -110,6 +113,17 @@ post.data.tags?.map((tag)=>(
 
 
 
+<script>
+import { PagefindUI } from "@pagefind/default-ui";
+
+new PagefindUI({
+  element: "#search",
+  showSubResults: true
+});
+</script>
+
+
+
 <style>
 
 
@@ -135,7 +149,15 @@ font-size:20px;
 
 color:#666;
 
-margin-bottom:60px;
+margin-bottom:40px;
+
+}
+
+
+
+#search{
+
+margin-bottom:40px;
 
 }
 
@@ -145,7 +167,7 @@ article{
 
 padding:30px 0;
 
-border-bottom:1px solid #eee;
+border-bottom:1px solid the #eee;
 
 }
 
