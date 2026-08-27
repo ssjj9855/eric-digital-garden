@@ -28,9 +28,11 @@ Blog
 <div id="search"></div>
 
 
-<p>
-文章数量：{posts.length}
-</p>
+<div class="count">
+
+{posts.length} 篇文章
+
+</div>
 
 
 
@@ -139,6 +141,12 @@ h1{
 
 font-size:56px;
 
+font-weight:700;
+
+margin-bottom:20px;
+
+letter-spacing:-1px;
+
 }
 
 
@@ -149,11 +157,31 @@ font-size:20px;
 
 color:#666;
 
+line-height:1.8;
+
+max-width:650px;
+
 margin-bottom:40px;
 
 }
 
+.count{
 
+display:inline-block;
+
+padding:8px 16px;
+
+background:#f5f5f5;
+
+border-radius:999px;
+
+font-size:14px;
+
+color:#666;
+
+margin-bottom:40px;
+
+}
 
 #search{
 
@@ -162,12 +190,57 @@ margin-bottom:40px;
 }
 
 
+#search input{
+
+width:100%;
+
+padding:14px 18px;
+
+font-size:16px;
+
+border:1px solid #eee;
+
+border-radius:14px;
+
+outline:none;
+
+transition:0.3s;
+
+box-sizing:border-box;
+
+}
+
+
+#search input:focus{
+
+border-color:#111;
+
+box-shadow:0 0 0 4px rgba(0,0,0,.08);
+
+}
+
+
 
 article{
 
-padding:30px 0;
+padding:30px;
 
-border-bottom:1px solid the #eee;
+border:1px solid #eee;
+
+border-radius:20px;
+
+margin-bottom:24px;
+
+transition:0.3s;
+
+}
+
+
+article:hover{
+
+transform:translateY(-6px);
+
+box-shadow:0 15px 35px rgba(0,0,0,.08);
 
 }
 
@@ -194,6 +267,15 @@ margin-bottom:25px;
 text-decoration:none;
 
 color:#111;
+
+transition:0.3s;
+
+}
+
+
+.title:hover{
+
+color:#666;
 
 }
 
@@ -237,11 +319,30 @@ margin-top:15px;
 
 .tag{
 
-margin-right:10px;
+display:inline-block;
 
-color:#555;
+padding:5px 12px;
+
+margin-right:8px;
+
+border-radius:999px;
+
+background:#f5f5f5;
+
+color:#666;
 
 font-size:14px;
+
+transition:0.3s;
+
+}
+
+
+.tag:hover{
+
+background:#111;
+
+color:white;
 
 }
 

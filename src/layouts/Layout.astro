@@ -3,6 +3,7 @@ const {
   title = "Eric Digital Garden", 
   description = "Eric Digital Garden - AI、科技、工具和个人探索记录" 
 } = Astro.props; 
+const currentPath = Astro.url.pathname;
 ---
 
 
@@ -47,7 +48,10 @@ name="author"
 content="Eric"
 />
 
-
+<meta 
+name="robots" 
+content="index, follow"
+/>
 
 <meta 
 property="og:title" 
@@ -65,7 +69,10 @@ content={description}
 property="og:type" 
 content="website"
 />
-
+<meta 
+property="og:url" 
+content={`https://eric-digital-garden.vercel.app${Astro.url.pathname}`}
+/>
 
 <meta 
 property="og:site_name" 
@@ -122,6 +129,11 @@ content={description}
 
 <body>
 
+<div id="progress-bar"></div>
+
+<button id="back-top">
+↑
+</button>
 
 <header>
 
@@ -143,30 +155,48 @@ Eric
 <nav>
 
 
-<a href="/">
+<a
+href="/"
+class={currentPath === "/" ? "active" : ""}
+>
 Home
 </a>
 
 
-<a href="/blog">
+<a 
+href="/blog"
+class={currentPath === "/blog" ? "active" : ""}
+>
 Blog
 </a>
 
 
-<a href="/categories">
+<a
+href="/categories"
+class={currentPath === "/categories" ? "active" : ""}
+>
 Categories
 </a>
 
 
-<a href="/projects">
+<a
+href="/projects"
+class={currentPath === "/projects" ? "active" : ""}
+>
 Projects
 </a>
 
 
-<a href="/about">
+<a
+href="/about"
+class={currentPath === "/about" ? "active" : ""}
+>
 About
 </a>
 
+<a href="/search">
+🔍 Search
+</a>
 
 <button id="theme-toggle">
 🌙
@@ -183,7 +213,7 @@ About
 
 
 
-<main>
+<main data-pagefind-body>
 
 <slot />
 
@@ -242,6 +272,62 @@ isDark ? "dark" : "light"
 
 });
 
+const progressBar = document.getElementById("progress-bar");
+
+
+window.addEventListener("scroll",()=>{
+
+
+const scrollTop = document.documentElement.scrollTop;
+
+
+const scrollHeight =
+document.documentElement.scrollHeight -
+document.documentElement.clientHeight;
+
+
+const progress =
+(scrollTop / scrollHeight) * 100;
+
+
+progressBar.style.width = progress + "%";
+
+
+});
+
+const backTop = document.getElementById("back-top");
+
+
+window.addEventListener("scroll",()=>{
+
+
+if(window.scrollY > 500){
+
+backTop?.classList.add("show");
+
+}else{
+
+backTop?.classList.remove("show");
+
+}
+
+
+});
+
+
+backTop?.addEventListener("click",()=>{
+
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+
+});
 
 </script>
 
@@ -328,9 +414,62 @@ text-decoration:none;
 
 color:#666;
 
+position:relative;
+
+transition:0.3s;
+
+}
+
+nav a:hover{
+
+color:#111;
+
+}
+
+nav a[href="/search"]{
+
+padding:8px 14px;
+
+border-radius:20px;
+
+background:#f5f5f5;
+
+}
+
+nav a.active{
+
+color:#111;
+
+font-weight:600;
+
+}
+
+nav a::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+
+bottom:-8px;
+
+width:0;
+
+height:2px;
+
+background:red;
+
+transition:0.3s;
+
 }
 
 
+nav a:hover::after{
+
+width:100%;
+
+}
 
 #theme-toggle{
 
@@ -401,7 +540,11 @@ color:#aaa;
 
 }
 
+.dark nav a[href="/search"]{
 
+background:#222;
+
+}
 
 .dark .logo a{
 
@@ -447,6 +590,158 @@ color:#eee;
 
 }
 
+@media (max-width:700px){
 
+header{
+
+margin:25px auto;
+
+padding:0 20px;
+
+}
+
+
+nav a{
+
+margin-left:12px;
+
+font-size:14px;
+
+}
+
+
+main{
+
+margin:60px auto;
+
+}
+
+
+.logo a{
+
+font-size:20px;
+
+}
+
+}
+
+#progress-bar{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+height:2px;
+
+width:0%;
+
+background:#111;
+
+z-index:99999;
+
+transition:width .1s;
+
+}
+
+#back-top{
+
+position:fixed;
+
+right:30px;
+
+bottom:30px;
+
+width:45px;
+
+height:45px;
+
+border-radius:50%;
+
+border:none;
+
+background:#111;
+
+color:white;
+
+font-size:20px;
+
+cursor:pointer;
+
+opacity:0;
+
+visibility:hidden;
+
+transition:0.3s;
+
+}
+
+
+#back-top.show{
+
+opacity:1;
+
+visibility:visible;
+
+}
+
+
+#back-top:hover{
+
+transform:translateY(-5px);
+
+}
+
+@media(max-width:768px){
+
+
+header{
+
+padding:0 20px;
+
+margin:25px auto;
+
+}
+
+
+nav a{
+
+margin-left:12px;
+
+font-size:14px;
+
+}
+
+
+
+main{
+
+margin:60px auto;
+
+padding:0 16px;
+
+}
+
+
+
+h1{
+
+font-size:40px;
+
+}
+
+
+
+#back-top{
+
+right:20px;
+
+bottom:20px;
+
+}
+
+
+}
 
 </style>
