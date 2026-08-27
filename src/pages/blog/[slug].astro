@@ -73,6 +73,39 @@ const nextPost = sortedPosts[currentIndex - 1];
 <Layout title={post.data.title} description={post.data.description}>
 
 
+<script type="application/ld+json" set:html={JSON.stringify({
+
+"@context":"https://schema.org",
+
+"@type":"Article",
+
+"headline":post.data.title,
+
+"description":post.data.description,
+
+"author":{
+
+"@type":"Person",
+
+"name":"Eric"
+
+},
+
+"datePublished":post.data.date,
+
+"publisher":{
+
+"@type":"Organization",
+
+"name":"Eric Digital Garden"
+
+}
+
+})}>
+</script>
+
+
+
 <main>
 
 
@@ -269,17 +302,7 @@ nextPost && (
 </main>
 
 
-</Layout>
-
-
-
-
-
-
-
-
-
-<style>
+</Layout><style>
 
 
 main{
@@ -368,8 +391,6 @@ text-decoration:none;
 
 
 
-
-
 .toc{
 
 background:#f8f8f8;
@@ -452,7 +473,6 @@ color:#333;
 
 
 
-
 .post-nav{
 
 display:flex;
@@ -472,6 +492,7 @@ border-top:1px solid #eee;
 
 
 
+
 .post-nav a{
 
 text-decoration:none;
@@ -481,6 +502,7 @@ color:inherit;
 max-width:45%;
 
 }
+
 
 
 
@@ -498,12 +520,12 @@ margin-bottom:10px;
 
 
 
+
 .post-nav strong{
 
 font-size:18px;
 
 }
-
 
 
 </style>
