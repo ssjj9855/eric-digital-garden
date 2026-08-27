@@ -1,0 +1,166 @@
+---
+import { getCollection } from "astro:content";
+
+const { currentId, tags = [] } = Astro.props;
+
+
+// 获取全部文章
+const posts = await getCollection("blog");
+
+
+// 推荐文章
+const relatedPosts = posts
+  .filter(post => post.id !== currentId)
+  .filter(post =>
+    post.data.tags?.some(tag => tags.includes(tag))
+  )
+  .slice(0,3);
+
+---
+
+{
+relatedPosts.length > 0 && (
+
+<section class="related">
+
+<h2>
+相关文章
+</h2>
+
+
+<div class="list">
+
+
+{
+relatedPosts.map(post => (
+
+<a href={`/blog/${post.id}`} class="card">
+
+
+<h3>
+{post.data.title}
+</h3>
+
+
+<p>
+{post.data.description}
+</p>
+
+
+<span>
+{post.data.date.toLocaleDateString("zh-CN")}
+</span>
+
+
+</a>
+
+))
+
+}
+
+
+</div>
+
+
+</section>
+
+)
+
+}
+
+
+
+<style>
+
+
+.related{
+
+margin-top:80px;
+
+padding-top:40px;
+
+border-top:1px solid #eee;
+
+}
+
+
+.related h2{
+
+font-size:28px;
+
+margin-bottom:30px;
+
+}
+
+
+
+.list{
+
+display:flex;
+
+flex-direction:column;
+
+gap:20px;
+
+}
+
+
+
+.card{
+
+display:block;
+
+padding:20px;
+
+border:1px solid #eee;
+
+border-radius:12px;
+
+text-decoration:none;
+
+color:inherit;
+
+transition:.2s;
+
+}
+
+
+
+.card:hover{
+
+transform:translateY(-3px);
+
+}
+
+
+
+.card h3{
+
+margin:0 0 10px;
+
+font-size:20px;
+
+}
+
+
+
+.card p{
+
+color:#666;
+
+margin-bottom:10px;
+
+}
+
+
+
+.card span{
+
+font-size:14px;
+
+color:#888;
+
+}
+
+
+</style>

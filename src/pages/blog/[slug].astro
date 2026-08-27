@@ -1,5 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import RelatedPosts from "../../components/RelatedPosts.astro";
 import { getCollection, render } from "astro:content";
 
 
@@ -251,7 +252,10 @@ headings.map((heading)=>(
 <Content />
 
 </article>
-
+<RelatedPosts
+currentId={post.id}
+tags={post.data.tags}
+/>
 
 
 

@@ -1,0 +1,186 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+
+export async function getStaticPaths(){
+
+const posts = await getCollection("blog");
+
+
+const seriesList = [...new Set(
+  posts
+    .map(post => post.data.series)
+    .filter(Boolean)
+)];
+
+
+return seriesList.map(series => ({
+
+params:{
+series
+},
+
+props:{
+series,
+posts: posts.filter(
+post => post.data.series === series
+)
+}
+
+}));
+
+}
+
+
+const {series, posts} = Astro.props;
+
+---
+
+<Layout title={`${series} - Eric`}>
+
+
+
+<main>
+
+
+<h1>
+📚 {series}
+</h1>
+
+
+<p class="intro">
+这个系列共有 {posts.length} 篇文章
+</p>
+
+
+
+<div class="posts">
+
+
+{
+posts.map(post => (
+
+
+<article>
+
+
+<a href={`/blog/${post.id}`}>
+
+<h2>
+{post.data.title}
+</h2>
+
+</a>
+
+
+<p>
+{post.data.description}
+</p>
+
+
+<span>
+
+{post.data.date.toLocaleDateString("zh-CN")}
+
+</span>
+
+
+</article>
+
+
+))
+}
+
+
+
+</div>
+
+
+</main>
+
+
+</Layout>
+
+
+
+<style>
+
+
+main{
+
+max-width:800px;
+
+margin:120px auto;
+
+padding:0 20px;
+
+}
+
+
+h1{
+
+font-size:42px;
+
+}
+
+
+.intro{
+
+color:#666;
+
+font-size:18px;
+
+margin-bottom:50px;
+
+}
+
+
+
+article{
+
+padding:25px 0;
+
+border-bottom:1px solid #eee;
+
+}
+
+
+
+article a{
+
+text-decoration:none;
+
+color:inherit;
+
+}
+
+
+
+h2{
+
+font-size:26px;
+
+}
+
+
+
+article p{
+
+color:#666;
+
+}
+
+
+
+span{
+
+font-size:14px;
+
+color:#888;
+
+}
+
+
+
+</style>

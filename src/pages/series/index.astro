@@ -1,0 +1,124 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+
+const posts = await getCollection("blog");
+
+
+const seriesList = [...new Set(
+  posts
+    .map(post => post.data.series)
+    .filter(Boolean)
+)];
+
+---
+
+<Layout title="Series - Eric">
+
+
+<main>
+
+
+<h1>
+Series
+</h1>
+
+
+<p class="intro">
+文章系列
+</p>
+
+
+
+<div class="series-list">
+
+
+{
+seriesList.map(series=>(
+
+<a href={`/series/${series}`}>
+
+📚 {series}
+
+</a>
+
+))
+
+}
+
+
+</div>
+
+
+
+</main>
+
+
+</Layout>
+
+
+
+<style>
+
+
+main{
+
+max-width:800px;
+
+margin:120px auto;
+
+padding:0 20px;
+
+}
+
+
+h1{
+
+font-size:48px;
+
+}
+
+
+.intro{
+
+color:#666;
+
+font-size:20px;
+
+margin-bottom:50px;
+
+}
+
+
+.series-list{
+
+display:flex;
+
+flex-direction:column;
+
+gap:20px;
+
+}
+
+
+
+.series-list a{
+
+padding:25px;
+
+border:1px solid #eee;
+
+border-radius:15px;
+
+text-decoration:none;
+
+color:inherit;
+
+font-size:22px;
+
+}
+
+
+
+</style>
