@@ -41,6 +41,30 @@ const readingTime = Math.max(
 Math.ceil(words / 400)
 );
 
+
+
+// 获取文章列表
+
+const allPosts = await getCollection("blog");
+
+
+const sortedPosts = allPosts.sort(
+(a,b)=>b.data.date.valueOf()-a.data.date.valueOf()
+);
+
+
+
+const currentIndex = sortedPosts.findIndex(
+(item)=>item.id === post.id
+);
+
+
+
+const previousPost = sortedPosts[currentIndex + 1];
+
+
+const nextPost = sortedPosts[currentIndex - 1];
+
 ---
 
 
@@ -68,7 +92,9 @@ Math.ceil(words / 400)
 
 
 
+
 <div class="stats">
+
 
 <span>
 ⏱ 阅读时间 {readingTime} 分钟
@@ -79,7 +105,9 @@ Math.ceil(words / 400)
 📝 约 {words} 字
 </span>
 
+
 </div>
+
 
 
 
@@ -121,6 +149,7 @@ post.data.tags?.map((tag)=>(
 
 
 
+
 <article>
 
 <Content />
@@ -128,10 +157,73 @@ post.data.tags?.map((tag)=>(
 </article>
 
 
+
+
+
+
+<nav class="post-nav">
+
+
+
+{
+previousPost && (
+
+<a href={`/blog/${previousPost.id}`}>
+
+<div>
+上一篇
+</div>
+
+
+<strong>
+{previousPost.data.title}
+</strong>
+
+
+</a>
+
+)
+
+}
+
+
+
+
+
+{
+nextPost && (
+
+<a href={`/blog/${nextPost.id}`}>
+
+<div>
+下一篇
+</div>
+
+
+<strong>
+{nextPost.data.title}
+</strong>
+
+
+</a>
+
+)
+
+}
+
+
+
+</nav>
+
+
+
+
 </main>
 
 
 </Layout>
+
+
 
 
 
@@ -245,6 +337,60 @@ margin-top:50px;
 article p{
 
 color:#333;
+
+}
+
+
+
+
+.post-nav{
+
+display:flex;
+
+justify-content:space-between;
+
+gap:30px;
+
+margin-top:80px;
+
+padding-top:40px;
+
+border-top:1px solid #eee;
+
+}
+
+
+
+
+.post-nav a{
+
+text-decoration:none;
+
+color:inherit;
+
+max-width:45%;
+
+}
+
+
+
+
+.post-nav div{
+
+font-size:14px;
+
+color:#888;
+
+margin-bottom:10px;
+
+}
+
+
+
+
+.post-nav strong{
+
+font-size:18px;
 
 }
 
