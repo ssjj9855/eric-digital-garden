@@ -15,55 +15,138 @@ Projects
 
 
 <p class="intro">
-我正在探索和构建的项目。
+我正在探索、构建和记录的项目。
 </p>
+
 
 
 
 <section class="grid">
 
 
+
 <div class="card">
+
+
+<div class="status">
+Active
+</div>
+
 
 <h2>
 Eric Digital Garden
 </h2>
 
+
 <p>
 基于 Astro 构建的个人数字花园，
-记录 AI、科技、工具和个人探索。
+用于记录 AI、科技、工具探索以及个人成长。
 </p>
+
+
+<div class="tags">
+
+<span>
+Astro
+</span>
+
+<span>
+Markdown
+</span>
+
+<span>
+Git
+</span>
+
+</div>
+
 
 </div>
 
 
 
+
+
 <div class="card">
+
+
+<div class="status">
+Exploring
+</div>
+
 
 <h2>
 AI Tools
 </h2>
 
+
 <p>
-探索 AI 工具、Agent 和自动化工作流，
-提升个人效率。
+探索 AI 工具、AI Agent 和自动化工作流，
+寻找提升个人效率的新方式。
 </p>
 
+
+<div class="tags">
+
+<span>
+AI
+</span>
+
+<span>
+Agent
+</span>
+
+<span>
+Automation
+</span>
+
 </div>
+
+
+</div>
+
+
 
 
 
 <div class="card">
 
+
+<div class="status">
+Creating
+</div>
+
+
 <h2>
 Content Creation
 </h2>
 
+
 <p>
-围绕 AI 科技进行公众号、小红书等内容创作。
+围绕人工智能和科技趋势，
+进行公众号、小红书等内容创作。
 </p>
 
+
+<div class="tags">
+
+<span>
+Writing
+</span>
+
+<span>
+Technology
+</span>
+
+<span>
+Media
+</span>
+
 </div>
+
+
+</div>
+
 
 
 </section>
@@ -76,13 +159,17 @@ Content Creation
 
 
 
+
+
 <style>
 
 
 main{
 
 max-width:900px;
+
 margin:120px auto;
+
 padding:0 20px;
 
 }
@@ -100,7 +187,9 @@ font-size:56px;
 .intro{
 
 font-size:20px;
+
 color:#666;
+
 margin-bottom:60px;
 
 }
@@ -110,6 +199,7 @@ margin-bottom:60px;
 .grid{
 
 display:grid;
+
 gap:25px;
 
 }
@@ -119,8 +209,32 @@ gap:25px;
 .card{
 
 border:1px solid #eee;
+
 border-radius:16px;
+
 padding:30px;
+
+transition:transform .2s;
+
+}
+
+
+
+.card:hover{
+
+transform:translateY(-4px);
+
+}
+
+
+
+.status{
+
+font-size:14px;
+
+color:#888;
+
+margin-bottom:15px;
 
 }
 
@@ -128,7 +242,7 @@ padding:30px;
 
 .card h2{
 
-font-size:26px;
+font-size:28px;
 
 }
 
@@ -137,10 +251,38 @@ font-size:26px;
 .card p{
 
 color:#666;
-line-height:1.7;
+
+line-height:1.8;
 
 }
 
+
+
+.tags{
+
+margin-top:20px;
+
+}
+
+
+
+.tags span{
+
+display:inline-block;
+
+background:#f5f5f5;
+
+padding:6px 12px;
+
+border-radius:20px;
+
+font-size:14px;
+
+margin-right:10px;
+
+color:#555;
+
+}
 
 
 </style>
