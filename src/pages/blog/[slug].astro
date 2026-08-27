@@ -25,7 +25,8 @@ post
 
 const {post}=Astro.props;
 
-const { Content } = await render(post);
+
+const { Content, headings } = await render(post);
 
 
 
@@ -40,6 +41,7 @@ const readingTime = Math.max(
 1,
 Math.ceil(words / 400)
 );
+
 
 
 
@@ -67,7 +69,7 @@ const nextPost = sortedPosts[currentIndex - 1];
 
 ---
 
-
+ 
 <Layout title={post.data.title} description={post.data.description}>
 
 
@@ -150,6 +152,53 @@ post.data.tags?.map((tag)=>(
 
 
 
+{
+headings.length > 0 && (
+
+<section class="toc">
+
+
+<h2>
+目录
+</h2>
+
+
+<ul>
+
+
+{
+headings.map((heading)=>(
+
+<li>
+
+<a href={`#${heading.slug}`}>
+
+{heading.text}
+
+</a>
+
+</li>
+
+))
+
+}
+
+
+</ul>
+
+
+</section>
+
+)
+
+}
+
+
+
+
+
+
+
 <article>
 
 <Content />
@@ -161,8 +210,8 @@ post.data.tags?.map((tag)=>(
 
 
 
-<nav class="post-nav">
 
+<nav class="post-nav">
 
 
 {
@@ -316,6 +365,63 @@ color:#666;
 
 
 
+
+
+
+.toc{
+
+background:#f8f8f8;
+
+padding:25px;
+
+border-radius:12px;
+
+margin-bottom:50px;
+
+}
+
+
+
+.toc h2{
+
+font-size:22px;
+
+margin-top:0;
+
+margin-bottom:20px;
+
+}
+
+
+
+.toc ul{
+
+padding-left:20px;
+
+}
+
+
+
+.toc li{
+
+margin:10px 0;
+
+}
+
+
+
+.toc a{
+
+text-decoration:none;
+
+color:inherit;
+
+}
+
+
+
+
+
 article{
 
 font-size:18px;
@@ -339,6 +445,8 @@ article p{
 color:#333;
 
 }
+
+
 
 
 
